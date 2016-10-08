@@ -8,24 +8,26 @@ import com.bolyartech.forge.android.app_unit.UnitActivity;
 
 
 /**
- * Created by ogre on 2016-01-10 12:45
+ * Your unit activities will have to inherit this base class
+ *
+ * UnitBaseActivity is not included in the library because you may need to chose between AppCompatActivity and Activity
  */
-abstract public class UnitBaseActivity<T extends ResidentComponent>
-        extends AppCompatActivity implements UnitActivity<T> {
+abstract public class UnitBaseActivity<T extends ResidentComponent> extends AppCompatActivity
+        implements UnitActivity<T> {
 
-    private T mResidentInterface;
+    private T mResident;
 
 
     @Override
     public void setResident(@NonNull T ri) {
-        mResidentInterface = ri;
+        mResident = ri;
     }
 
 
     @NonNull
     @Override
     public T getResident() {
-        return mResidentInterface;
+        return mResident;
     }
 
 
