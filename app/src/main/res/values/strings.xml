@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Forge-android example basic</string>
+    <string name="act__main__tv_value">The value is %d</string>
+    <string name="act__main__btn_new_value">New value</string>S
+</resources>
