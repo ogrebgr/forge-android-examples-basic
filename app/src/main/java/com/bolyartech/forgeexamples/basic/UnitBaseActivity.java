@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.bolyartech.forge.android.app_unit.ResidentComponent;
 import com.bolyartech.forge.android.app_unit.UnitActivity;
+import com.bolyartech.forge.android.app_unit.UnitActivityDelegate;
 
 
 /**
@@ -16,25 +17,26 @@ import com.bolyartech.forge.android.app_unit.UnitActivity;
 abstract public class UnitBaseActivity<T extends ResidentComponent> extends AppCompatActivity
         implements UnitActivity<T> {
 
-    private T mResident;
+    private UnitActivityDelegate<T> mDelegate = new UnitActivityDelegate<>();
 
 
     @Override
     public void setResident(@NonNull T resident) {
-        mResident = resident;
+        mDelegate.setResident(resident);
     }
 
 
-    @NonNull
     @Override
+    @NonNull
     public T getResident() {
-        return mResident;
+        return mDelegate.getResident();
     }
 
 
-    @NonNull
     @Override
+    @NonNull
     public T getRes() {
-        return getResident();
+        return mDelegate.getRes();
     }
 }
+
