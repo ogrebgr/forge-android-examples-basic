@@ -20,8 +20,8 @@ abstract public class UnitBaseActivity<T extends ResidentComponent> extends AppC
 
 
     @Override
-    public void setResident(@NonNull T ri) {
-        mResident = ri;
+    public void setResident(@NonNull T resident) {
+        mResident = resident;
     }
 
 
