@@ -183,3 +183,6 @@ public class ActMain extends UnitBaseActivity<ResMain> {
 (5) We get the stored value from the resident and show it
 
 You can play with the app by switching orientation and see that value is preserved.
+
+
+Next tutorial is [Creating your first unit](https://github.com/ogrebgr/forge-android/wiki/Creating-your-first-unit)
