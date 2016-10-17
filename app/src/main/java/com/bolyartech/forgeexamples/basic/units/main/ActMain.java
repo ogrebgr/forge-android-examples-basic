@@ -1,6 +1,5 @@
 package com.bolyartech.forgeexamples.basic.units.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -49,7 +48,9 @@ public class ActMain extends UnitBaseActivity<ResMain> {
      */
     private void initViews(View view) {
         mTvValue = ViewUtils.findTextViewX(view, R.id.tv_value);
-        ViewUtils.initButton(view, R.id.btn_new_value, new DebouncedOnClickListener() {
+        ViewUtils.initButton(view, R.id.btn_new_value,
+                new DebouncedOnClickListener() {
+
             @Override
             public void onDebouncedClick(View v) {
                 getRes().newValue();
@@ -67,6 +68,7 @@ public class ActMain extends UnitBaseActivity<ResMain> {
 
 
     private void updateValueView() {
-        mTvValue.setText(getString(R.string.act__main__tv_value, getRes().getStored()));
+        mTvValue.setText(getString(R.string.act__main__tv_value,
+                getRes().getStored()));
     }
 }
