@@ -11,7 +11,6 @@ import com.bolyartech.forge.android.misc.DebouncedOnClickListener;
 import com.bolyartech.forge.android.misc.ViewUtils;
 import com.bolyartech.forgeexamples.basic.R;
 import com.bolyartech.forgeexamples.basic.UnitBaseActivity;
-import com.bolyartech.forgeexamples.basic.units.simple.ActSimple;
 
 
 /**
@@ -41,10 +40,6 @@ public class ActMain extends UnitBaseActivity<ResMain> {
         setContentView(R.layout.act_main);
 
         initViews(getWindow().getDecorView());
-
-
-        Intent intent = new Intent(ActMain.this, ActSimple.class);
-        startActivity(intent);
     }
 
 
