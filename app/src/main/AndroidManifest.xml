@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.bolyartech.forgeexamples.basic"
           xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
+        android:name=".MyApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:name=".MyApp"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".units.main.ActMain">
+        <activity android:name=".units.realistic.ActRealistic">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Forge-android example basic</string>
     <string name="act__main__tv_value">The value is %d</string>
-    <string name="act__main__btn_new_value">New value</string>S
+    <string name="act__main__btn_new_value">New value</string>
+
+    <string name="act__realistic__btn_retrieve_data">Retrieve data</string>
+    <string name="act__realistic__tv_int">Integer data: %d</string>
+    <string name="act__realistic__tv_string">String data: %s</string>
+
+    <string name="dlg__comm_problem_title">Communication problem</string>
+    <string name="dlg__comm_problem_msg">There was a problem communicating with the server. Please try again later.</string>
+
+    <string name="global_btn_close">Close</string>
+    <string name="dlg__generic_wait">Please wait…</string>
 </resources>
