@@ -5,13 +5,13 @@ import org.json.JSONObject;
 
 
 class ExampleData {
-    final int exampleInt;
-    final String exampleString;
+    private final int mExampleInt;
+    private final String mExampleString;
 
 
-    ExampleData(int exampleInt, String exampleString) {
-        this.exampleInt = exampleInt;
-        this.exampleString = exampleString;
+    public ExampleData(int exampleInt, String exampleString) {
+        this.mExampleInt = exampleInt;
+        this.mExampleString = exampleString;
     }
 
 
@@ -20,5 +20,15 @@ class ExampleData {
                 json.getInt("example_int"),
                 json.getString("example_string")
         );
+    }
+
+
+    public int getExampleInt() {
+        return mExampleInt;
+    }
+
+
+    public String getExampleString() {
+        return mExampleString;
     }
 }

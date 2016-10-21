@@ -21,7 +21,7 @@ public class ActRealistic extends UnitBaseActivity<ResRealistic> {
 
     @NonNull
     @Override
-    public ResidentComponent createResidentComponent() {
+    public ResRealistic createResidentComponent() {
         return new ResRealisticImpl();
     }
 
@@ -55,8 +55,8 @@ public class ActRealistic extends UnitBaseActivity<ResRealistic> {
             public void run() {
                 hideCommWaitDialog();
                 ExampleData data = getRes().getExampleData();
-                mTvInt.setText(getString(R.string.act__realistic__tv_int, data.exampleInt));
-                mTvString.setText(getString(R.string.act__realistic__tv_string, data.exampleString));
+                mTvInt.setText(getString(R.string.act__realistic__tv_int, data.getExampleInt()));
+                mTvString.setText(getString(R.string.act__realistic__tv_string, data.getExampleString()));
             }
         });
     }
