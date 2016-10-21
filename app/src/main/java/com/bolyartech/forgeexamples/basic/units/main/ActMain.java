@@ -28,7 +28,7 @@ public class ActMain extends UnitBaseActivity<ResMain> {
      */
     @NonNull
     @Override
-    public ResidentComponent createResidentComponent() {
+    public ResMain createResidentComponent() {
         return new ResMain();
     }
 
