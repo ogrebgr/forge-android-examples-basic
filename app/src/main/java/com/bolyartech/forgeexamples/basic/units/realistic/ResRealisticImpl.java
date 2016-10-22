@@ -58,7 +58,6 @@ class ResRealisticImpl extends ResidentComponentAdapter implements ResRealistic 
             }
         });
         t.start();
-
     }
 
 

@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
-import com.bolyartech.forge.android.app_unit.ResidentComponent;
 import com.bolyartech.forge.android.misc.DebouncedOnClickListener;
 import com.bolyartech.forge.android.misc.ViewUtils;
 import com.bolyartech.forgeexamples.basic.R;
@@ -73,7 +72,7 @@ public class ActRealistic extends UnitBaseActivity<ResRealistic> {
     }
 
 
-    public  void showCommProblemDialog() {
+    public void showCommProblemDialog() {
         FragmentManager fm = getFragmentManager();
         if (fm.findFragmentByTag(DfCommProblem.DIALOG_TAG) == null) {
             DfCommProblem fra = new DfCommProblem();
@@ -93,14 +92,11 @@ public class ActRealistic extends UnitBaseActivity<ResRealistic> {
     }
 
 
-    public boolean hideCommWaitDialog() {
+    public void hideCommWaitDialog() {
         FragmentManager fm = getFragmentManager();
         DialogFragment df = (DialogFragment) fm.findFragmentByTag(DfCommWait.DIALOG_TAG);
         if (df != null) {
             df.dismiss();
-            return true;
-        } else {
-            return false;
         }
     }
 }
