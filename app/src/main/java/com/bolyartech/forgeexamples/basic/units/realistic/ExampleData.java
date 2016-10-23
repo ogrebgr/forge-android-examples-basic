@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-class ExampleData {
+public class ExampleData {
     private final int mExampleInt;
     private final String mExampleString;
 
