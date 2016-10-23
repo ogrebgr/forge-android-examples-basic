@@ -11,6 +11,9 @@ import com.bolyartech.forge.android.misc.DebouncedOnClickListener;
 import com.bolyartech.forge.android.misc.ViewUtils;
 import com.bolyartech.forgeexamples.basic.R;
 import com.bolyartech.forgeexamples.basic.UnitBaseActivity;
+import com.bolyartech.forgeexamples.basic.data.ExampleData;
+import com.bolyartech.forgeexamples.basic.dialogs.DfCommProblem;
+import com.bolyartech.forgeexamples.basic.dialogs.DfCommWait;
 
 
 public class ActRealistic extends UnitBaseActivity<ResRealistic> {

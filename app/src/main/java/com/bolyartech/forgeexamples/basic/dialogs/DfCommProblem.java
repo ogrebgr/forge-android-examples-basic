@@ -1,4 +1,4 @@
-package com.bolyartech.forgeexamples.basic.units.realistic;
+package com.bolyartech.forgeexamples.basic.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

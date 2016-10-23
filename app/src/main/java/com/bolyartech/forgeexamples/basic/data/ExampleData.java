@@ -1,4 +1,4 @@
-package com.bolyartech.forgeexamples.basic.units.realistic;
+package com.bolyartech.forgeexamples.basic.data;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,7 +15,7 @@ public class ExampleData {
     }
 
 
-    static ExampleData fromJson(JSONObject json) throws JSONException {
+    public static ExampleData fromJson(JSONObject json) throws JSONException {
         return new ExampleData(
                 json.getInt("example_int"),
                 json.getString("example_string")

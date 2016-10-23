@@ -3,6 +3,7 @@ package com.bolyartech.forgeexamples.basic.units.realistic;
 
 import com.bolyartech.forge.android.app_unit.ResidentComponentAdapter;
 import com.bolyartech.forge.android.app_unit.UnitActivity;
+import com.bolyartech.forgeexamples.basic.data.ExampleData;
 
 import org.json.JSONException;
 import org.json.JSONObject;
