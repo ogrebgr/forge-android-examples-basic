@@ -59,7 +59,7 @@ public class ActSideEffect extends OpActivity<ResSideEffect> {
                 break;
             case ENDED:
                 MyDialogs.hideCommWaitDialog(getFragmentManager());
-                if (getRes().isSuccess()) {
+                if (getRes().isEndedSuccessfully()) {
                     onExampleData();
                 } else {
                     onError();
