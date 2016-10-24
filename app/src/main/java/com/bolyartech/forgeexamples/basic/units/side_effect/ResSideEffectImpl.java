@@ -13,7 +13,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 
-public class ResSideEffectImpl extends AbstractSideEffectOperationResidentComponent<ExampleData, Void> implements ResSideEffect {
+public class ResSideEffectImpl extends AbstractSideEffectOperationResidentComponent<ExampleData, Void>
+        implements ResSideEffect {
+
+
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
 
     @Override

@@ -64,7 +64,7 @@ public class ActSideEffect extends OpActivity<ResSideEffect> {
                 } else {
                     onError();
                 }
-                getRes().ack();
+                getRes().endedStateAcknowledged();
                 break;
         }
     }
