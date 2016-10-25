@@ -4,7 +4,7 @@ import com.bolyartech.forge.android.app_unit.AbstractMultiOperationResidentCompo
 import com.bolyartech.forge.android.app_unit.OperationOutcome;
 
 
-public class ResMultiOperationImpl extends AbstractMultiOperationResidentComponent<ResMultiOperation.Operation>
+public class ResMultiOperationImpl extends AbstractMultiOperationResidentComponent<Operation>
         implements ResMultiOperation {
 
     private OperationOutcome<Integer, Void> mFirstOperationOutcome;

@@ -4,17 +4,11 @@ import com.bolyartech.forge.android.app_unit.MultiOperationResidentComponent;
 import com.bolyartech.forge.android.app_unit.OperationOutcome;
 
 
-public interface ResMultiOperation extends MultiOperationResidentComponent<ResMultiOperation.Operation> {
+public interface ResMultiOperation extends MultiOperationResidentComponent<Operation> {
 
     void executeFirstOperation();
     void executeSecondOperation();
 
     OperationOutcome<Integer, Void> getFirstOperationOutcome();
     OperationOutcome<Float, Void> getSecondOperationOutcome();
-
-
-    enum Operation {
-        FIRST_OPERATION,
-        SECOND_OPERATION
-    }
 }
