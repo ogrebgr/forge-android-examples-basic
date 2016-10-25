@@ -19,6 +19,7 @@ public class ResSideEffectImpl extends AbstractSideEffectOperationResidentCompon
 
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
 
+
     @Override
     public void retrieveExampleData() {
         switchToBusyState();

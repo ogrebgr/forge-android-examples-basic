@@ -8,9 +8,6 @@ abstract public class OpActivity<T extends ResidentComponent> extends UnitBaseAc
         implements OperationResidentComponent.Listener {
 
 
-    abstract protected void handleState();
-
-
     @Override
     public void onResidentOperationStateChanged() {
         runOnUiThread(new Runnable() {
@@ -20,4 +17,7 @@ abstract public class OpActivity<T extends ResidentComponent> extends UnitBaseAc
             }
         });
     }
+
+
+    abstract protected void handleState();
 }

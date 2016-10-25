@@ -28,26 +28,41 @@ public class ActRealistic extends UnitBaseActivity<ResRealistic> {
     }
 
 
+    public void showCommProblemDialog() {
+        FragmentManager fm = getFragmentManager();
+        if (fm.findFragmentByTag(DfCommProblem.DIALOG_TAG) == null) {
+            DfCommProblem fra = new DfCommProblem();
+            fra.show(fm, DfCommProblem.DIALOG_TAG);
+            fm.executePendingTransactions();
+        }
+    }
+
+
+    public void showCommWaitDialog() {
+        FragmentManager fm = getFragmentManager();
+        if (fm.findFragmentByTag(DfCommWait.DIALOG_TAG) == null) {
+            DfCommWait fra = new DfCommWait();
+            fra.show(fm, DfCommWait.DIALOG_TAG);
+            fm.executePendingTransactions();
+        }
+    }
+
+
+    public void hideCommWaitDialog() {
+        FragmentManager fm = getFragmentManager();
+        DialogFragment df = (DialogFragment) fm.findFragmentByTag(DfCommWait.DIALOG_TAG);
+        if (df != null) {
+            df.dismiss();
+        }
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_realistic);
 
         initViews(getWindow().getDecorView());
-    }
-
-
-    private void initViews(View view) {
-        ViewUtils.initButton(view, R.id.btn_retrieve, new DebouncedOnClickListener() {
-            @Override
-            public void onDebouncedClick(View v) {
-                showCommWaitDialog();
-                getRes().retrieveExampleData();
-            }
-        });
-
-        mTvInt = ViewUtils.findTextViewX(view, R.id.tv_int);
-        mTvString = ViewUtils.findTextViewX(view, R.id.tv_string);
     }
 
 
@@ -75,31 +90,16 @@ public class ActRealistic extends UnitBaseActivity<ResRealistic> {
     }
 
 
-    public void showCommProblemDialog() {
-        FragmentManager fm = getFragmentManager();
-        if (fm.findFragmentByTag(DfCommProblem.DIALOG_TAG) == null) {
-            DfCommProblem fra = new DfCommProblem();
-            fra.show(fm, DfCommProblem.DIALOG_TAG);
-            fm.executePendingTransactions();
-        }
-    }
+    private void initViews(View view) {
+        ViewUtils.initButton(view, R.id.btn_retrieve, new DebouncedOnClickListener() {
+            @Override
+            public void onDebouncedClick(View v) {
+                showCommWaitDialog();
+                getRes().retrieveExampleData();
+            }
+        });
 
-
-    public void showCommWaitDialog() {
-        FragmentManager fm = getFragmentManager();
-        if (fm.findFragmentByTag(DfCommWait.DIALOG_TAG) == null) {
-            DfCommWait fra = new DfCommWait();
-            fra.show(fm, DfCommWait.DIALOG_TAG);
-            fm.executePendingTransactions();
-        }
-    }
-
-
-    public void hideCommWaitDialog() {
-        FragmentManager fm = getFragmentManager();
-        DialogFragment df = (DialogFragment) fm.findFragmentByTag(DfCommWait.DIALOG_TAG);
-        if (df != null) {
-            df.dismiss();
-        }
+        mTvInt = ViewUtils.findTextViewX(view, R.id.tv_int);
+        mTvString = ViewUtils.findTextViewX(view, R.id.tv_string);
     }
 }

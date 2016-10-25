@@ -10,7 +10,7 @@ import com.bolyartech.forge.android.app_unit.UnitActivityDelegate;
 
 /**
  * Your unit activities will have to inherit this base class
- *
+ * <p>
  * UnitBaseActivity is not included in the library because you may need to chose between AppCompatActivity and Activity.
  * You may have more than one unit base activity depending on your needs.
  */
@@ -21,15 +21,15 @@ abstract public class UnitBaseActivity<T extends ResidentComponent> extends AppC
 
 
     @Override
-    public void setResident(@NonNull T resident) {
-        mDelegate.setResident(resident);
+    @NonNull
+    public T getResident() {
+        return mDelegate.getResident();
     }
 
 
     @Override
-    @NonNull
-    public T getResident() {
-        return mDelegate.getResident();
+    public void setResident(@NonNull T resident) {
+        mDelegate.setResident(resident);
     }
 
 

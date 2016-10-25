@@ -6,5 +6,6 @@ import com.bolyartech.forgeexamples.basic.data.ExampleData;
 
 interface ResRealistic extends ResidentComponent {
     void retrieveExampleData();
+
     ExampleData getExampleData();
 }

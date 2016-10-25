@@ -7,15 +7,22 @@ import android.widget.TextView;
 
 import com.bolyartech.forge.android.misc.DebouncedOnClickListener;
 import com.bolyartech.forge.android.misc.ViewUtils;
+import com.bolyartech.forgeexamples.basic.OpActivity;
 import com.bolyartech.forgeexamples.basic.R;
 import com.bolyartech.forgeexamples.basic.data.ExampleData;
 import com.bolyartech.forgeexamples.basic.dialogs.MyDialogs;
-import com.bolyartech.forgeexamples.basic.OpActivity;
 
 
 public class ActSideEffect extends OpActivity<ResSideEffect> {
     private TextView mTvInt;
     private TextView mTvString;
+
+
+    @NonNull
+    @Override
+    public ResSideEffect createResidentComponent() {
+        return new ResSideEffectImpl();
+    }
 
 
     @Override
@@ -24,26 +31,6 @@ public class ActSideEffect extends OpActivity<ResSideEffect> {
         setContentView(R.layout.act_realistic);
 
         initViews(getWindow().getDecorView());
-    }
-
-
-    private void initViews(View view) {
-        ViewUtils.initButton(view, R.id.btn_retrieve, new DebouncedOnClickListener() {
-            @Override
-            public void onDebouncedClick(View v) {
-                getRes().retrieveExampleData();
-            }
-        });
-
-        mTvInt = ViewUtils.findTextViewX(view, R.id.tv_int);
-        mTvString = ViewUtils.findTextViewX(view, R.id.tv_string);
-    }
-
-
-    @NonNull
-    @Override
-    public ResSideEffect createResidentComponent() {
-        return new ResSideEffectImpl();
     }
 
 
@@ -70,11 +57,23 @@ public class ActSideEffect extends OpActivity<ResSideEffect> {
     }
 
 
-
     @Override
     protected void onResume() {
         super.onResume();
         handleState();
+    }
+
+
+    private void initViews(View view) {
+        ViewUtils.initButton(view, R.id.btn_retrieve, new DebouncedOnClickListener() {
+            @Override
+            public void onDebouncedClick(View v) {
+                getRes().retrieveExampleData();
+            }
+        });
+
+        mTvInt = ViewUtils.findTextViewX(view, R.id.tv_int);
+        mTvString = ViewUtils.findTextViewX(view, R.id.tv_string);
     }
 
 

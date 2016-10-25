@@ -62,6 +62,12 @@ class ResRealisticImpl extends ResidentComponentAdapter implements ResRealistic 
     }
 
 
+    @Override
+    public ExampleData getExampleData() {
+        return mExampleData;
+    }
+
+
     private synchronized void onError() {
         if (mActivity != null) {
             mActivity.onError();
@@ -73,11 +79,5 @@ class ResRealisticImpl extends ResidentComponentAdapter implements ResRealistic 
         if (mActivity != null) {
             mActivity.onExampleData();
         }
-    }
-
-
-    @Override
-    public ExampleData getExampleData() {
-        return mExampleData;
     }
 }

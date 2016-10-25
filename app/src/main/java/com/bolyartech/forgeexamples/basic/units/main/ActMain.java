@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
-import com.bolyartech.forge.android.app_unit.ResidentComponent;
 import com.bolyartech.forge.android.misc.DebouncedOnClickListener;
 import com.bolyartech.forge.android.misc.ViewUtils;
 import com.bolyartech.forgeexamples.basic.R;
@@ -24,6 +23,7 @@ public class ActMain extends UnitBaseActivity<ResMain> {
 
     /**
      * This method will be called from the UnitManager in order to create the resident component
+     *
      * @return Resident component
      */
     @NonNull
@@ -42,8 +42,16 @@ public class ActMain extends UnitBaseActivity<ResMain> {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateValueView();
+    }
+
+
     /**
      * It is good practice to have view initialization in separate in a method
+     *
      * @param view View
      */
     private void initViews(View view) {
@@ -51,19 +59,12 @@ public class ActMain extends UnitBaseActivity<ResMain> {
         ViewUtils.initButton(view, R.id.btn_new_value,
                 new DebouncedOnClickListener() {
 
-            @Override
-            public void onDebouncedClick(View v) {
-                getRes().newValue();
-                updateValueView();
-            }
-        });
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        updateValueView();
+                    @Override
+                    public void onDebouncedClick(View v) {
+                        getRes().newValue();
+                        updateValueView();
+                    }
+                });
     }
 
 
