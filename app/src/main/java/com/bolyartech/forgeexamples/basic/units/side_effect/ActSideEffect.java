@@ -52,6 +52,7 @@ public class ActSideEffect extends OpActivity<ResSideEffect> {
         switch (getRes().getOpState()) {
             case IDLE:
                 MyDialogs.hideCommWaitDialog(getFragmentManager());
+                showData();
                 break;
             case BUSY:
                 MyDialogs.showCommWaitDialog(getFragmentManager());
@@ -59,7 +60,7 @@ public class ActSideEffect extends OpActivity<ResSideEffect> {
             case ENDED:
                 MyDialogs.hideCommWaitDialog(getFragmentManager());
                 if (getRes().isEndedSuccessfully()) {
-                    onExampleData();
+                    showData();
                 } else {
                     onError();
                 }
@@ -69,6 +70,7 @@ public class ActSideEffect extends OpActivity<ResSideEffect> {
     }
 
 
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -76,10 +78,12 @@ public class ActSideEffect extends OpActivity<ResSideEffect> {
     }
 
 
-    private void onExampleData() {
+    private void showData() {
         ExampleData data = getRes().getLastResult();
-        mTvInt.setText(getString(R.string.act__realistic__tv_int, data.getExampleInt()));
-        mTvString.setText(getString(R.string.act__realistic__tv_string, data.getExampleString()));
+        if (data != null) {
+            mTvInt.setText(getString(R.string.act__realistic__tv_int, data.getExampleInt()));
+            mTvString.setText(getString(R.string.act__realistic__tv_string, data.getExampleString()));
+        }
     }
 
 
