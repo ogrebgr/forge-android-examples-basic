@@ -31,7 +31,6 @@ public class ActSideEffect extends OpActivity<ResSideEffect> {
         ViewUtils.initButton(view, R.id.btn_retrieve, new DebouncedOnClickListener() {
             @Override
             public void onDebouncedClick(View v) {
-                MyDialogs.showCommWaitDialog(getFragmentManager());
                 getRes().retrieveExampleData();
             }
         });
