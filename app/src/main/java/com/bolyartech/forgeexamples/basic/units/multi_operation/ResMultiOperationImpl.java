@@ -25,7 +25,7 @@ public class ResMultiOperationImpl extends AbstractMultiOperationResidentCompone
                         e.printStackTrace();
                     }
 
-                    mFirstOperationOutcome = new OperationOutcome<>(true, 42, null);
+                    mFirstOperationOutcome =  OperationOutcome.createSuccessOutcome(42);
                     switchToEndedStateSuccess();
                 }
             });
@@ -47,7 +47,7 @@ public class ResMultiOperationImpl extends AbstractMultiOperationResidentCompone
                         e.printStackTrace();
                     }
 
-                    mSecondOperationOutcome = new OperationOutcome<>(true, 3.14f, null);
+                    mSecondOperationOutcome = OperationOutcome.createSuccessOutcome(3.14f);
                     switchToEndedStateSuccess();
                 }
             });
