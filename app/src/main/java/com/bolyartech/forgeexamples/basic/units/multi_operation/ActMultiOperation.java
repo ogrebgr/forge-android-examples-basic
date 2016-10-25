@@ -18,7 +18,6 @@ public class ActMultiOperation extends OpActivity<ResMultiOperation> {
     private TextView mTvFloat;
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +38,28 @@ public class ActMultiOperation extends OpActivity<ResMultiOperation> {
     protected void onResume() {
         super.onResume();
         handleState();
+    }
+
+
+    private void initViews(View view) {
+        ViewUtils.initButton(view, R.id.btn_first, new DebouncedOnClickListener() {
+            @Override
+            public void onDebouncedClick(View v) {
+                getRes().executeFirstOperation();
+            }
+        });
+
+
+        ViewUtils.initButton(view, R.id.btn_second, new DebouncedOnClickListener() {
+            @Override
+            public void onDebouncedClick(View v) {
+                getRes().executeSecondOperation();
+            }
+        });
+
+
+        mTvInt = ViewUtils.findTextViewX(view, R.id.tv_int);
+        mTvFloat = ViewUtils.findTextViewX(view, R.id.tv_float);
     }
 
 
@@ -65,32 +86,6 @@ public class ActMultiOperation extends OpActivity<ResMultiOperation> {
                 getRes().ack();
                 break;
         }
-    }
-
-
-    private void initViews(View view) {
-        ViewUtils.initButton(view, R.id.btn_first, new DebouncedOnClickListener() {
-            @Override
-            public void onDebouncedClick(View v) {
-                if (getRes().isIdle()) {
-                    getRes().executeFirstOperation();
-                }
-            }
-        });
-
-
-        ViewUtils.initButton(view, R.id.btn_second, new DebouncedOnClickListener() {
-            @Override
-            public void onDebouncedClick(View v) {
-                if (getRes().isIdle()) {
-                    getRes().executeSecondOperation();
-                }
-            }
-        });
-
-
-        mTvInt = ViewUtils.findTextViewX(view, R.id.tv_int);
-        mTvFloat = ViewUtils.findTextViewX(view, R.id.tv_float);
     }
 
 
