@@ -1,6 +1,7 @@
 package com.bolyartech.forgeexamples.basic.units.side_effect;
 
 import com.bolyartech.forge.android.app_unit.AbstractSideEffectOperationResidentComponent;
+import com.bolyartech.forge.android.app_unit.OperationResidentComponent;
 import com.bolyartech.forgeexamples.basic.data.ExampleData;
 
 import org.json.JSONException;
@@ -21,25 +22,27 @@ public class ResSideEffectImpl extends AbstractSideEffectOperationResidentCompon
 
     @Override
     public void retrieveExampleData() {
-        switchToBusyState();
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Request request = new Request.Builder()
-                        .url("http://forge-samples.bolyartech.com/realistic.html")
-                        .build();
+        if (getOpState() == OperationResidentComponent.OpState.IDLE) {
+            switchToBusyState();
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Request request = new Request.Builder()
+                            .url("http://forge-samples.bolyartech.com/realistic.html")
+                            .build();
 
 
-                try {
-                    Response response = mOkHttpClient.newCall(request).execute();
-                    JSONObject json = new JSONObject(response.body().string());
-                    ExampleData data = ExampleData.fromJson(json);
-                    switchToEndedStateSuccess(data);
-                } catch (JSONException | IOException e) {
-                    switchToEndedStateFail(null);
+                    try {
+                        Response response = mOkHttpClient.newCall(request).execute();
+                        JSONObject json = new JSONObject(response.body().string());
+                        ExampleData data = ExampleData.fromJson(json);
+                        switchToEndedStateSuccess(data);
+                    } catch (JSONException | IOException e) {
+                        switchToEndedStateFail(null);
+                    }
                 }
-            }
-        });
-        t.start();
+            });
+            t.start();
+        }
     }
 }
