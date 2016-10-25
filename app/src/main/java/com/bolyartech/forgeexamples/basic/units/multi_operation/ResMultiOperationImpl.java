@@ -13,46 +13,46 @@ public class ResMultiOperationImpl extends AbstractMultiOperationResidentCompone
 
     @Override
     public void executeFirstOperation() {
-        switchToBusyState(Operation.FIRST_OPERATION);
+        if (isIdle()) {
+            switchToBusyState(Operation.FIRST_OPERATION);
 
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    mFirstOperationOutcome = new OperationOutcome<>(true, 42, null);
+                    switchToEndedStateSuccess();
                 }
-
-                onFirstOperationCompleted(42);
-            }
-        });
-        t.start();
-    }
-
-
-    private void onFirstOperationCompleted(int i) {
-        mFirstOperationOutcome = new OperationOutcome<>(true, 42, null);
-        switchToEndedStateSuccess();
+            });
+            t.start();
+        }
     }
 
 
     @Override
     public void executeSecondOperation() {
-        switchToBusyState(Operation.SECOND_OPERATION);
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        if (isIdle()) {
+            switchToBusyState(Operation.SECOND_OPERATION);
+            Thread t = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
-                onSecondOperationCompleted(3.14f);
-            }
-        });
-        t.start();
+                    mSecondOperationOutcome = new OperationOutcome<>(true, 3.14f, null);
+                    switchToEndedStateSuccess();
+                }
+            });
+            t.start();
+        }
     }
 
 
@@ -65,11 +65,5 @@ public class ResMultiOperationImpl extends AbstractMultiOperationResidentCompone
     @Override
     public OperationOutcome<Float, Void> getSecondOperationOutcome() {
         return mSecondOperationOutcome;
-    }
-
-
-    private void onSecondOperationCompleted(float v) {
-        mSecondOperationOutcome = new OperationOutcome<>(true, v, null);
-        switchToEndedStateSuccess();
     }
 }
