@@ -14,11 +14,11 @@ public class ResMultiOperationImpl extends AbstractMultiOperationResidentCompone
     @Override
     public void executeFirstOperation() {
         if (isIdle()) {
-            switchToBusyState(Operation.FIRST_OPERATION);
 
             Thread t = new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    switchToBusyState(Operation.FIRST_OPERATION);
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
@@ -37,10 +37,10 @@ public class ResMultiOperationImpl extends AbstractMultiOperationResidentCompone
     @Override
     public void executeSecondOperation() {
         if (isIdle()) {
-            switchToBusyState(Operation.SECOND_OPERATION);
             Thread t = new Thread(new Runnable() {
                 @Override
                 public void run() {
+                    switchToBusyState(Operation.SECOND_OPERATION);
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
