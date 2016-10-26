@@ -22,10 +22,10 @@ public class ResSideEffectImpl extends AbstractSideEffectOperationResidentCompon
 
     @Override
     public void retrieveExampleData() {
-        switchToBusyState();
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
+                switchToBusyState();
                 Request request = new Request.Builder()
                         .url("http://forge-samples.bolyartech.com/realistic.html")
                         .build();
